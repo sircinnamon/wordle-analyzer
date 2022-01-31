@@ -89,7 +89,7 @@ def recommend_guess_by_analysis(wordlist, limit=1):
 		# if (progress_bar and (i % progress_bar_inc == 0)): print("|", end="\r", flush=True)
 		a = analyze_guess(wordlist, word)
 		analyzed.append((a[1], a[0][0], word)) # average, worstcase, word
-		if progress_bar: print("\r[{:<50}]({}/{})".format("|"*(ceil(50*i/max_words)), i+1, max_words), end="", flush=True)
+		if progress_bar: print("\r[{:<50}]({}/{})".format("|"*(ceil(50*(i+1)/max_words)), i+1, max_words), end="", flush=True)
 	analyzed.sort(key=lambda x: x[0])
 	print("")
 	return analyzed[:limit]
@@ -115,7 +115,7 @@ def reccomend_guess_by_unused(wordlist, limit=1):
 	wl = out[:limit]
 
 	# words have been chosen, sort by analysis
-	print(limit, wl)
+	# print(limit, wl)
 	def analyze_formatter(r):
 		a = analyze_guess(wordlist, r)
 		return (a[1], a[0][0], r) # average, worstcase, word
