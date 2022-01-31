@@ -198,8 +198,8 @@ def ai_mode():
 			print("STAGE {} - {} WORDS REMAIN".format(rnd, len(wordlist)))
 			reccs =  dynamic_recommend(wordlist)
 			curr_word = reccs[0][2]
-			print("\tChosen guess: {}".format(curr_word.upper()))
 			g = (curr_word, make_guess(curr_word, target))
+			print("\tChosen guess: {} {}".format(curr_word.upper(), g))
 			wordlist = filter_wordlist(wordlist, g)
 			rnd+=1
 
